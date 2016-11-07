@@ -20,7 +20,8 @@ post '/submit' do
     end
 
     fileOutput = outputCsvLines.join("\n")
-    content_type :txt
+    attachment "cleancsv.csv"
+    content_type "application/octet-stream"
     fileOutput
 
   end

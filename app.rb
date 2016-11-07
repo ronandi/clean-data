@@ -13,10 +13,15 @@ post '/submit' do
     csv = CSV.parse(file, :headers => true)
 
     outputCsvLines = Array.new
+    outputCsvLines << csv.headers.join(",")
 
     csv.each do |row|
       outputCsvLines << row if row_is_good(row)
     end
+
+    fileOutput = outputCsvLines.join("\n")
+    content_type :txt
+    fileOutput
 
   end
 

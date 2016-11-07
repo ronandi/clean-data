@@ -36,7 +36,7 @@ def row_is_good row
   return false if row.field('Inbound/outbound').include?("outbound")
   return false if row.field('Message').to_s.empty?
   return false if blocked_start_words.any? { |phrase| row.field('Message').split.first.downcase == phrase }
-  return false if blocked_words.any? { |phrase| row.field('Message').split.first.downcase.include? phrase }
+  return false if blocked_words.any? { |phrase| row.field('Message').downcase.include? phrase }
 
   return true
 end

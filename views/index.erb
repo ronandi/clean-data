@@ -3,14 +3,24 @@
     <div class="page-header">
       <h1>Upload a CSV</h1>
     </div>
-<label class="custom-file">
-  <input type="file" id="file" class="custom-file-input">
-  <span class="custom-file-control"></span>
-</label>
-  </div>
-</div>
+
+    <form action="/submit" method="POST" enctype="multipart/form-data">
+
+      <label class="custom-file">
+        <input type="file" id="file" name="file" accept=".csv" class="custom-file-input">
+        <span class="custom-file-control"></span>
+      </label>
+      <br/><br/>
+
+      <input type="submit" value="Submit File for Filtering" />
+
+    </form>
+
+  </div> <!-- .container -->
+</div> <!-- #wrap -->
 
 <div id="footer">
   <div class="container">
     <p class="text-muted credit">Created for Vote.org? Probably?</p>
   </div>
+</div>

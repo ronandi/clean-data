@@ -20,16 +20,16 @@ post '/submit' do
     end
 
     file_suffix = "_clean.csv"
-    fileOutput = outputCsvLines.join
     output_file_name = if filename.include?(".")
                          filename[0..filename.rindex(".")-1] + file_suffix
                        else
                          filename + file_suffix
                        end
     attachment output_file_name
-    content_type "application/octet-stream"
-    fileOutput
 
+    content_type "application/octet-stream"
+    fileOutput = outputCsvLines.join
+    fileOutput
   end
 
 end

@@ -19,8 +19,14 @@ post '/submit' do
       outputCsvLines << row if row_is_good(row)
     end
 
+    file_suffix = "_clean.csv"
     fileOutput = outputCsvLines.join
-    attachment "cleancsv.csv"
+    output_file_name = if filename.include?(".")
+                         filename[0..filename.rindex(".")-1] + file_suffix
+                       else
+                         filename + file_suffix
+                       end
+    attachment output_file_name
     content_type "application/octet-stream"
     fileOutput
 

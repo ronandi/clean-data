@@ -30,8 +30,8 @@ end
 
 def row_is_good row
   blocked_words = ["do not contact", "leave me alone", "take me off", "remove", "stop texting", "do not call", "do not text",
-                   "already", "early voted", "voted early", "i voted", "wrong person", "wrong number", "fuck", "hell", "asshole",
-                   "shit", "ass", "can't vote", "cannot vote", "don't vote"]
+                   "already", "early voted", "voted early", "i voted", "wrong person", "wrong number", "fuck", "asshole",
+                   "shit", "asshole", "can't vote", "cannot vote", "don't vote"]
   blocked_start_words = ["stop", "quit", "no", "dont", "don't"]
   return false if row.field('Inbound/outbound').include?("outbound")
   return false if row.field('Message').to_s.empty?
